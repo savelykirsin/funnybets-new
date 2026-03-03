@@ -1,0 +1,16 @@
+# Node backend
+backend/node_modules/
+backend/.env
+
+# Python
+.venv/
+__pycache__/
+
+# IDE / editor
+.idea/
+.vscode/
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
