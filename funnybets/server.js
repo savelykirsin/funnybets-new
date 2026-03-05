@@ -1,7 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const Replicate = require('replicate');
+const path = require('path'); // Убедитесь, что эта строка есть
 
+// ... ваш код в server.js
+require('dotenv').config(); // Это должно быть здесь
+
+// ДОБАВЬТЕ ЭТИ СТРОКИ:
+console.log("DEBUG Dotenv config result:", require('dotenv').config());
+console.log("DEBUG Replicate Token from process.env:", process.env.REPLICATE_API_TOKEN);
+// ...
 const app = express();
 const port = 3000;
 
@@ -17,8 +25,7 @@ const replicate = new Replicate({
 // ID I2V модели (Image-to-Video)
 const VIDEO_MODEL_ID = 'sunfjun/stable-video-diffusion:d68b6e09eedbac7a49e3d8644999d93579c386a083768235cabca88796d70d82';
 // URL изображения для превью (одно для всех)
-const previewImageUrl = 'http://37.228.116.144:3000/images/basket.jpg'; // Замените на имя вашего файла, если оно другое. Используем IP сервера.
-
+const previewImageUrl = 'https://major-bears-yell.loca.lt'; // Ваш IP сервера
 // Функция для опроса статуса генерации видео
 async function pollPrediction(predictionId) {
     let prediction;
